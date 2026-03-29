@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VIP Access</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body{
   margin:0;
@@ -12,30 +14,63 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:#0f2027;
+  background:linear-gradient(135deg,#000428,#004e92);
+  font-family:'Poppins',sans-serif;
   color:#fff;
-  font-family:sans-serif;
 }
 
+/* Card */
 .box{
   text-align:center;
-  padding:30px;
-  border-radius:15px;
-  background:#1c1c1c;
+  padding:40px 30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  width:90%;
+  max-width:400px;
+  box-shadow:0 0 40px rgba(0,0,0,0.5);
 }
 
-img{
-  width:80px;
+/* Logo */
+.logo{
+  width:90px;
+  margin-bottom:15px;
 }
 
+/* Channel */
+.name{
+  font-size:28px;
+  font-weight:700;
+}
+
+/* Timer */
+.title{
+  margin-top:10px;
+  opacity:0.8;
+}
+
+.timer{
+  font-size:50px;
+  margin:20px 0;
+  color:#00f2fe;
+  font-weight:700;
+}
+
+/* Button */
 .btn{
   display:inline-block;
-  margin-top:20px;
-  padding:12px 25px;
-  background:#00c6ff;
+  padding:15px 35px;
+  border-radius:50px;
+  background:linear-gradient(90deg,#00f2fe,#4facfe);
   color:#000;
   text-decoration:none;
-  border-radius:25px;
+  font-weight:600;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
 }
 </style>
 </head>
@@ -44,25 +79,31 @@ img{
 
 <div class="box">
 
-<img src="logo.png">
+  <img src="logo.png" class="logo">
 
-<h2>Ravi Singh</h2>
+  <div class="name">Ravi Singh</div>
 
-<p>Vip Joining Ends In</p>
-<h1 id="t">60</h1>
+  <div class="title">Vip Joining Ends In</div>
 
-<a href="https://t.me/+-JN51D5zpdw0YzE1" target="_blank" class="btn">
-Join Telegram
-</a>
+  <div class="timer" id="count">60</div>
+
+  <!-- ✅ WORKING BUTTON -->
+  <a href="https://t.me/+PaC-KyThMfYxNDFl" target="_blank" class="btn">
+    Join Telegram
+  </a>
 
 </div>
 
 <script>
 let t=60;
-setInterval(()=>{
+let x=setInterval(()=>{
 t--;
-document.getElementById("t").innerText=t;
-if(t<=0) document.getElementById("t").innerText="Closed";
+document.getElementById("count").innerText=t;
+
+if(t<=0){
+clearInterval(x);
+document.getElementById("count").innerText="Closed";
+}
 },1000);
 </script>
 
