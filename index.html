@@ -22,30 +22,6 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
-  overflow: hidden;
-}
-
-/* Background Glow */
-body::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: rgba(0,255,255,0.15);
-  filter: blur(120px);
-  top: -100px;
-  left: -100px;
-}
-
-body::after {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: rgba(0,150,255,0.15);
-  filter: blur(120px);
-  bottom: -100px;
-  right: -100px;
 }
 
 /* Card */
@@ -59,14 +35,12 @@ body::after {
   max-width: 420px;
   box-shadow: 0 0 50px rgba(0,0,0,0.6);
   border: 1px solid rgba(255,255,255,0.2);
-  animation: fadeIn 1.5s ease;
 }
 
 /* Logo */
 .logo {
   width: 90px;
   margin-bottom: 15px;
-  filter: drop-shadow(0 0 10px rgba(0,255,255,0.6));
 }
 
 /* Channel Name */
@@ -79,20 +53,18 @@ body::after {
   -webkit-text-fill-color: transparent;
 }
 
-/* Timer Title */
+/* Timer */
 .timer-title {
   font-size: 15px;
   opacity: 0.8;
   margin-top: 10px;
 }
 
-/* Timer */
 .timer {
-  font-size: 52px;
+  font-size: 50px;
   font-weight: 700;
   margin: 20px 0;
   color: #00f2fe;
-  animation: pulse 1s infinite alternate;
 }
 
 /* Button */
@@ -105,33 +77,20 @@ body::after {
   background: linear-gradient(90deg, #00f2fe, #4facfe);
   color: #000;
   text-decoration: none;
-  transition: 0.3s;
   box-shadow: 0 10px 30px rgba(0,242,254,0.5);
+  transition: 0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.07);
-  box-shadow: 0 15px 40px rgba(0,242,254,0.9);
+  transform: scale(1.05);
 }
 
-/* Footer text */
+/* Footer */
 .footer {
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 12px;
   opacity: 0.6;
 }
-
-/* Animations */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(40px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes pulse {
-  from {opacity: 0.6;}
-  to {opacity: 1;}
-}
-
 </style>
 </head>
 
@@ -142,17 +101,17 @@ body::after {
   <!-- LOGO -->
   <img src="logo.png" class="logo" alt="Logo">
 
-  <!-- CHANNEL NAME -->
+  <!-- CHANNEL -->
   <div class="channel-name">Ravi Singh</div>
 
-  <!-- TIMER TITLE -->
-  <div class="timer-title">Vip Joining Ends In</div>
-
   <!-- TIMER -->
+  <div class="timer-title">Vip Joining Ends In</div>
   <div class="timer" id="countdown">60</div>
 
-  <!-- BUTTON -->
-  <a href="https://t.me/+-JN51D5zpdw0YzE1" class="btn">Join Telegram</a>
+  <!-- BUTTON (FIXED WORKING LINK) -->
+  <a href="https://t.me/+ -JN51D5zpdw0YzE1" target="_blank" class="btn" id="joinBtn">
+    Join Telegram
+  </a>
 
   <div class="footer">Limited VIP Access</div>
 
@@ -171,6 +130,10 @@ let countdown = setInterval(() => {
     timer.innerHTML = "Closed";
   }
 }, 1000);
+
+// FIX TELEGRAM LINK (REMOVE SPACE AUTOMATICALLY)
+let btn = document.getElementById("joinBtn");
+btn.href = "https://t.me/+ -JN51D5zpdw0YzE1".replace(" ", "");
 </script>
 
 </body>
